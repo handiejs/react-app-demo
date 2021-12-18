@@ -4,6 +4,9 @@
 [submodule "zora-antd"]
 	path = external/zora-antd
 	url = https://github.com/zora-ui/adapter-ant-design.git
+[submodule "handie-core"]
+	path = external/handie-core
+	url = https://github.com/handiejs/runtime-core.git
 [submodule "handie-react"]
 	path = external/handie-react
 	url = https://github.com/handiejs/handie-react.git
