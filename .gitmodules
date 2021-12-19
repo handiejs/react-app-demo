@@ -1,9 +1,15 @@
+[submodule "petals"]
+	path = external/petals
+	url = https://github.com/ourai/petals.git
 [submodule "zora-core"]
 	path = external/zora-core
 	url = https://github.com/zora-ui/core.git
 [submodule "zora-antd"]
 	path = external/zora-antd
 	url = https://github.com/zora-ui/adapter-ant-design.git
+[submodule "organik"]
+	path = external/organik
+	url = https://github.com/ourai/organik.git
 [submodule "handie-core"]
 	path = external/handie-core
 	url = https://github.com/handiejs/runtime-core.git
