@@ -2,7 +2,7 @@ import { ComponentType, ComponentCtor, ComponentDescriptor } from '../types';
 
 import * as controls from './control';
 import * as widgets from './widget';
-// import * as renderers from './renderer';
+import * as renderers from './renderer';
 
 function convertToDescriptors(
   map: Record<string, ComponentCtor>,
@@ -14,5 +14,5 @@ function convertToDescriptors(
 export default ([] as ComponentDescriptor[]).concat(
   convertToDescriptors(controls),
   convertToDescriptors(widgets, 'widget'),
-  // convertToDescriptors(renderers, 'renderer'),
+  convertToDescriptors(renderers, 'renderer'),
 );

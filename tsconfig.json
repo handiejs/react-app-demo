@@ -18,7 +18,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"],
-      // "petals-ui/dist/*": ["external/petals-ui/packages/petals/src/*"],
+      // "petals-ui/dist/*": ["external/petals/packages/petals/src/*"],
       "@zora/core/dist/*": ["external/zora-core/src/*"],
       "@zora/adapter-ant-design": ["external/zora-antd/src/index.ts"],
       "@zora/adapter-ant-design/dist/*": ["external/zora-antd/src/*"],
