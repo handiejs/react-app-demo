@@ -19,6 +19,13 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  sass: {
+    implementation: require('sass'),
+    sassOptions: {
+      fiber: require('fibers'),
+    },
+    prependData: `@import "~@zora/adapter-ant-design/dist/basic/helper";`,
+  },
   routes,
   fastRefresh: {},
 });

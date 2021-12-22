@@ -1,10 +1,10 @@
 import otaku from './otaku';
 
 export default [
+  otaku,
   {
     name: 'root',
     path: '/',
-    /* redirect:'/otaku' */ component: '@/domain/animation/views/animation-list/index',
+    redirect:'/otaku/animations',
   },
-  otaku,
 ];

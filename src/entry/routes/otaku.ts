@@ -1,7 +1,8 @@
 export default {
   name: 'otaku',
   path: '/otaku',
-  redirect: '/otaku/animations',
+  component: '@/entry/layouts/admin/index',
+  // redirect: '/otaku/animations',
   routes: [
     {
       name: 'animationList',
