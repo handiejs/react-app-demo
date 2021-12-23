@@ -8,9 +8,12 @@ function resolve(dir) {
 
 export default defineConfig({
   alias:{
+    'petals-ui/dist': resolve('./external/petals/packages/petals/src'),
     '@zora/core/dist': resolve('./external/zora-core/src'),
     '@zora/adapter-ant-design/dist': resolve('./external/zora-antd/src'),
     '@zora/adapter-ant-design': resolve('./external/zora-antd/src/index.ts'),
+    '@handie/runtime-core/dist': resolve('./external/handie-core/src'),
+    '@handie/runtime-core': resolve('./external/handie-core/src/index.ts'),
     'handie-react/dist': resolve('./external/handie-react/src'),
     'handie-react': resolve('./external/handie-react/src/index.ts'),
     '@handie/squirtle/dist': resolve('./external/squirtle/src'),
