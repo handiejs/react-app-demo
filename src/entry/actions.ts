@@ -5,15 +5,15 @@ export default [
     name: 'gotoCreateFormView',
     context: 'free',
     text: '新增',
-    execute: (context: ViewContext, vm) =>
-      vm.$router.push({ name: `${context.getModuleContext().getModuleName()}NewForm` }),
+    execute: (context: ViewContext, { history }) =>
+      history.push({ name: `${context.getModuleContext().getModuleName()}NewForm` }),
   },
   {
     name: 'gotoEditFormView',
     context: 'single',
     text: '编辑',
-    execute: (context: ObjectViewContext, vm) =>
-      vm.$router.push({
+    execute: (context: ObjectViewContext, { history }) =>
+      history.push({
         name: `${context.getModuleContext().getModuleName()}EditForm`,
         params: { id: context.getFieldValue('id') },
       }),
@@ -22,8 +22,8 @@ export default [
     name: 'gotoDetailView',
     context: 'single',
     text: '查看',
-    execute: (context: ObjectViewContext, vm) =>
-      vm.$router.push({
+    execute: (context: ObjectViewContext, { history }) =>
+      history.push({
         name: `${context.getModuleContext().getModuleName()}Detail`,
         params: { id: context.getFieldValue('id') },
       }),

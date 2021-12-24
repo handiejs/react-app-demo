@@ -1,3 +1,11 @@
+import { getComponents as _getComponents } from '@/shared/utils';
+
 const MODULE_NAME = 'animation';
 
-export { MODULE_NAME };
+const getComponents = _getComponents.bind(null, MODULE_NAME);
+
+function testUtil(): string {
+  return 'You are great!';
+}
+
+export { MODULE_NAME, getComponents, testUtil };

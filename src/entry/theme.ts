@@ -25,7 +25,7 @@ export default {
         showUnavailableOption: true,
         showHintAtFormItem: true,
         hintPositionOfFormItem: 'label',
-        hintIcon: 'el:question',
+        hintIcon: 'ol:python',
         showValidationRulesAsNative: true,
       },
     },

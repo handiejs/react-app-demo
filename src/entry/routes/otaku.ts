@@ -9,5 +9,10 @@ export default {
       path: '/otaku/animations',
       component: '@/domain/animation/views/animation-list/index',
     },
+    {
+      name: 'animationCreateForm',
+      path: '/otaku/animations/new',
+      component: '@/domain/animation/views/animation-form/index',
+    },
   ],
 };
