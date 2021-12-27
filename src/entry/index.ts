@@ -7,6 +7,7 @@ import {
 } from 'handie-react';
 import { history } from 'umi';
 
+import { Dialog } from '@/shared/components/control';
 import components from '@/shared/components';
 import modules from '../domain';
 import actions from './actions';
@@ -38,12 +39,8 @@ function createAppHelper(): AppHelper {
       push: (location: HistoryLocation) => history.push(resolveHistoryParams(location)),
       replace: (location: HistoryLocation) => history.replace(resolveHistoryParams(location)),
     },
-    alert: message => {
-      console.log('alert', message);
-    },
-    confirm: message => {
-      console.log('confirm', message);
-    },
+    alert: (message, callback) => Dialog.alert(message, callback as any),
+    confirm: (message, ...args: any[]) => Dialog.confirm(message, ...args),
   };
 }
 
