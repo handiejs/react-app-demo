@@ -22,6 +22,7 @@ export default {
         showValidationRulesAsNative: true,
       },
       field: {
+        enumFieldRenderType: 'select',
         showUnavailableOption: true,
         showHintAtFormItem: true,
         hintPositionOfFormItem: 'label',

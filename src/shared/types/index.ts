@@ -22,6 +22,7 @@ export {
   ViewContext,
   ListViewContext,
   ObjectViewContext,
+  ActionWidgetState,
   ObjectViewWidgetState,
   // RouteConfig,
   // RouteRecord,
