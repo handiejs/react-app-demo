@@ -8,6 +8,8 @@ function resolve(dir) {
 
 export default defineConfig({
   alias:{
+    '@petals/basic/style': resolve('./external/petals-basic/src/style'),
+    '@petals/basic': resolve('./external/petals-basic/src/index.ts'),
     'petals-ui/dist': resolve('./external/petals/packages/petals/src'),
     '@zora/core/dist': resolve('./external/zora-core/src'),
     '@zora/adapter-ant-design/dist': resolve('./external/zora-antd/src'),

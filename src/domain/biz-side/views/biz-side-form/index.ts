@@ -3,6 +3,7 @@ import { createView } from 'handie-react';
 import { ViewDescriptor } from '@/shared/types';
 
 import context from '../../context';
+import ConfigFieldWidget from './ConfigField';
 import BizSideFormDialogViewWidget from './BizSideFormDialog';
 
 // export default createView(context, {
@@ -33,7 +34,7 @@ function getBizSideFormDescriptor(listViewContext, visible) {
       'interfaceCategory',
       'recommendedStrategies',
       'random',
-      { name: 'config', label: '配置' },
+      { name: 'config', label: '配置', widget: ConfigFieldWidget },
     ],
     initialValue: {
       dialogVisible: visible,

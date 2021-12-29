@@ -19,3 +19,6 @@
 [submodule "squirtle"]
 	path = external/squirtle
 	url = https://github.com/handiejs/squirtle.git
+[submodule "petals-basic"]
+	path = external/petals-basic
+	url = https://github.com/petals-ui/basic.git

@@ -10,5 +10,13 @@ export default {
   model,
   actions,
   views,
-  components: { XButton: 'Button', XDialog: 'Dialog', Message: true, Wait: true, Popover: true },
+  components: {
+    XButton: 'Button',
+    XDialog: 'Dialog',
+    Tabs: true,
+    TabPane: true,
+    Message: true,
+    Wait: true,
+    Popover: true,
+  },
 } as ModuleDescriptor;
