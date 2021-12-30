@@ -20,10 +20,10 @@ export default class ConfigFieldWidget extends FieldHeadlessWidget<
         activeFlag={this.state.activeTab}
         onChange={(activeTab) => this.setState({ activeTab })}
       >
-        <TabPane flag="0" label="tab 1">
+        <TabPane flag="0" label="配置">
           <p>123</p>
         </TabPane>
-        <TabPane flag="1" label="tab 2">
+        <TabPane flag="1" label="数据来源">
           456
         </TabPane>
       </Tabs>

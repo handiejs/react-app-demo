@@ -34,7 +34,7 @@ function getBizSideFormDescriptor(listViewContext, visible) {
       'interfaceCategory',
       'recommendedStrategies',
       'random',
-      { name: 'config', label: '配置', widget: ConfigFieldWidget },
+      { name: 'config', widget: ConfigFieldWidget },
     ],
     initialValue: {
       dialogVisible: visible,

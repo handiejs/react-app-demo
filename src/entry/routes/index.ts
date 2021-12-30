@@ -1,9 +1,9 @@
 import otaku from './otaku';
-import recommendation from './recommendation';
+import fintech from './fintech';
 
 export default [
   otaku,
-  recommendation,
+  fintech,
   {
     name: 'root',
     path: '/',
