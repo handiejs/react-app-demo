@@ -28,6 +28,6 @@ export default createView(context, {
   ],
   search: {
     filters: ['name'],
-    config: { searchable: false, resettable: false },
+    config: { searchable: false, resettable: false, hideFormControlLabel: true },
   },
 } as ViewDescriptor);

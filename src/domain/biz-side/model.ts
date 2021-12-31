@@ -5,8 +5,8 @@ import { MODULE_NAME } from './helper';
 export default {
   name: MODULE_NAME,
   fields: [
-    { name: 'id', label: '推荐业务ID', dataType: 'string', required: true },
-    { name: 'name', label: '推荐业务名称', dataType: 'string', required: true },
+    { name: 'id', label: '推荐业务ID', dataType: 'string' },
+    { name: 'name', label: '推荐业务名称', dataType: 'string' },
     {
       name: 'interfaceCategory',
       label: '接口类别',

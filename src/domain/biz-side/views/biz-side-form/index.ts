@@ -26,7 +26,7 @@ function getBizSideFormDescriptor(listViewContext, visible) {
     name: 'BizSideFormView',
     category: 'object',
     widget: BizSideFormDialogViewWidget,
-    config: { arrangement: '2|2|2' },
+    config: { formControlLabelWidth: 96, arrangement: '2|2|2' },
     fields: [
       'id',
       'name',

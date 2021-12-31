@@ -18,13 +18,20 @@ export default class BizSideFormDialogViewWidget extends ObjectViewHeadlessWidge
   };
 
   public render(): ReactNode {
-    const { XDialog } = this.$$module.getComponents();
+    const { XButton, XDialog } = this.$$module.getComponents();
 
     return (
       <XDialog
         title="新增推荐业务"
         width="832px"
+        footer={
+          <>
+            <XButton>取消</XButton>
+            <XButton color="primary">确认</XButton>
+          </>
+        }
         visible={this.state.dialogVisible}
+        centered
       >
         <FormRenderer
           fields={this.fields}
