@@ -1,0 +1,52 @@
+.RecommendationListViewWidget {
+  padding: 24px 40px;
+
+  &-heading {
+    margin-bottom: 24px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &-list {
+    list-style: none inside none;
+    margin: -10px;
+    padding: 0;
+
+    @include pie-clearfix;
+  }
+
+  &-item {
+    float: left;
+    width: 330px;
+    height: 90px;
+    margin: 10px;
+    border: 1px solid #e9ebf0;
+    border-radius: 3px;
+  }
+
+  &-itemContent {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+  }
+
+  &-itemIcon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    background-color: #f00;
+    border-radius: 3px;
+  }
+
+  &-itemText {
+    margin-left: 22px;
+    font-size: 16px;
+    color: #333 !important;
+  }
+}
