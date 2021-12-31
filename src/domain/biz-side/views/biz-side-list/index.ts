@@ -8,7 +8,8 @@ import EditActionWidget from './EditAction';
 export default createView(context, {
   name: 'BizSideListView',
   category: 'list',
-  renderType: 'table',
+  renderType: 'fintechTable',
+  config: { operationColumnWidth: 250 },
   fields: [
     'name',
     'id',
