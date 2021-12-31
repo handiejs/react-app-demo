@@ -1,24 +1,46 @@
 .FinTechAdminLayout {
   background-color: #f4f6f9;
 
-  &-brand,
   &-header {
     height: 50px;
+    padding: 0;
+    line-height: 50px;
+  }
+
+  &-header,
+  &-mainNav {
     background-color: #428df5;
   }
 
-  &-sidebar {
-    padding-top: 50px;
-    background-color: transparent;
+  &-brand,
+  &-topMenu {
+    display: inline-block;
+    vertical-align: top;
   }
 
   &-brand {
-    display: block;
-    margin-top: -50px;
+    width: 266px;
     padding: 0 24px;
     font-size: 16px;
-    line-height: 50px;
+    color: #fff !important;
+  }
+
+  &-topMenu {
+    height: 100%;
+  }
+
+  &-mainNav {
     color: #fff;
+
+    :global {
+      .ant-menu-item {
+        color: inherit !important;
+      }
+    }
+  }
+
+  &-sidebar {
+    background-color: transparent;
   }
 
   &-menu,
@@ -28,5 +50,9 @@
 
   &-menu {
     width: 240px;
+  }
+
+  &-main {
+    background-color: #fff;
   }
 }

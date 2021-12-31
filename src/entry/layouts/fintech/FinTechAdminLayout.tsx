@@ -13,25 +13,7 @@ import {
 } from '@/shared/components/control';
 
 import style from './style.scss';
-
-function findRouteDeeply(pathname: string, routes: any[]) {
-  let route;
-
-  for (let i = 0; i < routes.length; i++) {
-    if (routes[i].path === pathname) {
-      route = routes[i];
-      break;
-    }
-
-    if ((routes[i].routes || []).length === 0) {
-      continue;
-    }
-
-    route = findRouteDeeply(pathname, routes[i].routes);
-  }
-
-  return route;
-}
+import { findRouteDeeply } from './helper';
 
 export default class AdminLayout extends Component {
   private resolveRoute(route) {
@@ -86,26 +68,37 @@ export default class AdminLayout extends Component {
     return (
       <AppContainer className={style.FinTechAdminLayout}>
         <LayoutContainer>
-          {!findRouteDeeply((this.props as any).location.pathname, [
-            (this.props as any).route,
-          ]).hideSidebar ? (
-            <LayoutAside
-              className={style['FinTechAdminLayout-sidebar']}
-              width={266}
-            >
-              <Link className={style['FinTechAdminLayout-brand']} to="/">
-                推荐中心
-              </Link>
-              <nav className={style['FinTechAdminLayout-menu']}>
-                {this.renderSideBarNavMenu()}
-              </nav>
-            </LayoutAside>
-          ) : null}
+          <LayoutHeader className={style['FinTechAdminLayout-header']}>
+            <Link className={style['FinTechAdminLayout-brand']} to="/">
+              推荐中心
+            </Link>
+            <nav className={style['FinTechAdminLayout-topMenu']}>
+              <NavMenu
+                className={style['FinTechAdminLayout-mainNav']}
+                direction="horizontal"
+              >
+                <NavMenuItem key="recommendation" icon="python">
+                  推荐页
+                </NavMenuItem>
+              </NavMenu>
+            </nav>
+          </LayoutHeader>
           <LayoutContainer>
-            <LayoutHeader className={style['FinTechAdminLayout-header']}>
-              页头
-            </LayoutHeader>
-            <LayoutMain>{this.props.children}</LayoutMain>
+            {!findRouteDeeply((this.props as any).location.pathname, [
+              (this.props as any).route,
+            ]).hideSidebar ? (
+              <LayoutAside
+                className={style['FinTechAdminLayout-sidebar']}
+                width={266}
+              >
+                <nav className={style['FinTechAdminLayout-menu']}>
+                  {this.renderSideBarNavMenu()}
+                </nav>
+              </LayoutAside>
+            ) : null}
+            <LayoutMain className={style['FinTechAdminLayout-main']}>
+              {this.props.children}
+            </LayoutMain>
           </LayoutContainer>
         </LayoutContainer>
       </AppContainer>
