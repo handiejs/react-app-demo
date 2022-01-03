@@ -1,14 +1,17 @@
 import { ReactNode } from 'react';
 
-import { ActionWidgetState } from '@/shared/types';
+import { ActionWidgetConfig, ActionWidgetState } from '@/shared/types';
 import { ViewRenderer } from '@/shared/components/renderer';
-import { ActionHeadlessWidget } from '@/shared/components/widget/headless';
+import { ActionStructuralWidget } from '@/shared/components/widget/base';
 
 interface BizSideEditActionState extends ActionWidgetState {
   dialogVisible: boolean;
 }
 
-export default class EditActionWidget extends ActionHeadlessWidget<BizSideEditActionState> {
+export default class EditActionWidget extends ActionStructuralWidget<
+  ActionWidgetConfig,
+  BizSideEditActionState
+> {
   public readonly state = {
     disabled: false,
     dialogVisible: false,

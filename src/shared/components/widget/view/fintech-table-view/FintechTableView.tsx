@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 import { Link } from 'umi';
 
-import { TableViewHeadlessWidget } from '../../headless';
+import { TableViewStructuralWidget } from '../../base';
 import style from './style.scss';
 
-export default class FintechTableViewWidget extends TableViewHeadlessWidget {
+export default class FintechTableViewWidget extends TableViewStructuralWidget {
   constructor(props) {
     super(props);
     this.setStyleClassNames(style);

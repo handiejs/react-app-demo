@@ -2,13 +2,13 @@ import { ReactNode } from 'react';
 
 import { ObjectViewWidgetState } from '@/shared/types';
 import { FormRenderer } from '@/shared/components/renderer';
-import { ObjectViewHeadlessWidget } from '@/shared/components/widget/headless';
+import { ObjectViewStructuralWidget } from '@/shared/components/widget/base';
 
 interface BizSideFormDialogViewState extends ObjectViewWidgetState {
   dialogVisible: boolean;
 }
 
-export default class BizSideFormDialogViewWidget extends ObjectViewHeadlessWidget<BizSideFormDialogViewState> {
+export default class BizSideFormDialogViewWidget extends ObjectViewStructuralWidget<BizSideFormDialogViewState> {
   public readonly state = {
     loading: false,
     dataSource: {},

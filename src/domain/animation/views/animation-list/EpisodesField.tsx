@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 
-import { RelationFieldHeadlessWidget } from '@/shared/components/widget/headless';
+import { RelationFieldStructuralWidget } from '@/shared/components/widget/base';
 
 import { AnimationEntity } from '../../typing';
 
-export default class AnimationListEpisodesField extends RelationFieldHeadlessWidget<
+export default class AnimationListEpisodesField extends RelationFieldStructuralWidget<
   AnimationEntity[]
 > {
   public render(): ReactNode {

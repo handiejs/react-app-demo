@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
 import { Link } from 'umi';
 
-import { ListViewHeadlessWidget } from '@/shared/components/widget/headless';
+import { ListViewStructuralWidget } from '@/shared/components/widget/base';
 
 import style from './style.scss';
 
-export default class RecommendationListViewWidget extends ListViewHeadlessWidget {
+export default class RecommendationListViewWidget extends ListViewStructuralWidget {
   public render(): ReactNode {
     return (
       <div className={style.RecommendationListViewWidget}>

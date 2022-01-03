@@ -22,6 +22,7 @@ export {
   ViewContext,
   ListViewContext,
   ObjectViewContext,
+  ActionWidgetConfig,
   ActionWidgetState,
   ObjectViewWidgetState,
   // RouteConfig,
@@ -31,5 +32,4 @@ export {
   ColumnContext,
   CellComponentRenderer,
   FieldComponentRenderer,
-  TableViewConfig,
 } from 'handie-react';

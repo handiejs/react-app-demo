@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
 
-import { FieldHeadlessWidget } from '@/shared/components/widget/headless';
+import { UnknownFieldStructuralWidget } from '@/shared/components/widget/base';
 
 interface ConfigFieldState {
   activeTab: string;
 }
 
-export default class ConfigFieldWidget extends FieldHeadlessWidget<
+export default class ConfigFieldWidget extends UnknownFieldStructuralWidget<
   any,
   ConfigFieldState
 > {

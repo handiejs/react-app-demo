@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import { ObjectViewWidgetState } from '@/shared/types';
-import { ObjectViewHeadlessWidget } from '@/shared/components/widget/headless';
+import { ObjectViewStructuralWidget } from '@/shared/components/widget/base';
 import { FormRenderer } from '@/shared/components/renderer';
 
 import { getComponents } from '../../helper';
@@ -33,7 +33,7 @@ const treeData = [
   },
 ];
 
-export default class AnimationForm extends ObjectViewHeadlessWidget<AnimationFormState> {
+export default class AnimationForm extends ObjectViewStructuralWidget<AnimationFormState> {
   public readonly state = {
     loading: false,
     dataSource: {},
