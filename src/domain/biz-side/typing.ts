@@ -1,16 +1,24 @@
+interface RecommendedItem {
+  item: string;
+  paramName?: string;
+}
+
+interface RecommendedStrategy {}
+
 enum BusinessStatus {
-  Online = 'online',
-  Offline = 'offline',
+  Online = '1',
+  Offline = '0',
 }
 
 interface BusinessSide {
   id: string;
-  name: string;
-  interfaceCategory: any[];
-  recommendedList: any[];
-  recommendedStrategies: any[];
-  random: number;
+  bizId: string;
+  token: string;
+  interfaceName: string;
+  itemList: RecommendedItem[];
+  strategyList: RecommendedStrategy[];
+  shuffleCount: number;
   status: BusinessStatus;
 }
 
-export { BusinessSide };
+export { RecommendedItem, RecommendedStrategy, BusinessSide };

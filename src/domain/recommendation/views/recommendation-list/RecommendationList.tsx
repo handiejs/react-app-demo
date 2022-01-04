@@ -13,14 +13,14 @@ export default class RecommendationListViewWidget extends ListViewStructuralWidg
           推荐列表
         </h2>
         <ul className={style['RecommendationListViewWidget-list']}>
-          {['培训推荐', '咨询推荐', '助手推荐', '招商推荐'].map((text) => (
+          {this.state.dataSource.map(({ bizId, bizName }) => (
             <li
               className={style['RecommendationListViewWidget-item']}
-              key={text}
+              key={bizId}
             >
               <Link
                 className={style['RecommendationListViewWidget-itemContent']}
-                to="/fintech/recommendation/specific/biz-sides"
+                to={`/fintech/recommendation/${bizId}/biz-sides?bizId=${bizId}`}
               >
                 <span
                   className={style['RecommendationListViewWidget-itemIcon']}
@@ -30,7 +30,7 @@ export default class RecommendationListViewWidget extends ListViewStructuralWidg
                 <span
                   className={style['RecommendationListViewWidget-itemText']}
                 >
-                  {text}
+                  {bizName}
                 </span>
               </Link>
             </li>

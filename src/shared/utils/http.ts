@@ -21,4 +21,25 @@ function normalizeResponse<DataType = any>(res: AxiosResponse): ResponseResult<D
       };
 }
 
-export { normalizeResponse, axios as default };
+function normalizeFintechResponse<DataType = any>({
+  status,
+  data,
+}: AxiosResponse): ResponseResult<DataType> {
+  return status === 200
+    ? {
+        success: data.success,
+        message: data.message || '',
+        code: data.msgCode || '',
+        data: data.value,
+        extra: data.resultMap || {},
+      }
+    : {
+        success: false,
+        message: data as string,
+        code: `${status}`,
+        data: undefined as any,
+        extra: {} as ResponseExtra,
+      };
+}
+
+export { normalizeResponse, normalizeFintechResponse, axios as default };

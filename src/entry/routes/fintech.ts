@@ -1,7 +1,7 @@
 export default {
   name: 'fintech',
   path: '/fintech',
-  component: '@/entry/layouts/fintech/index',
+  component: '@/entry/layouts/fintech',
   // redirect: '/fintech/recommendation',
   routes: [
     {
@@ -14,24 +14,24 @@ export default {
           name: 'recommendationList',
           text: '推荐列表',
           path: '/fintech/recommendation/list',
-          component: '@/domain/recommendation/views/recommendation-list/index',
+          component: '@/domain/recommendation/views/recommendation-list',
           hideSidebar: true,
         },
         {
           name: 'specificRecommendation',
           text: '指定推荐',
-          path: '/fintech/recommendation/specific',
+          path: '/fintech/recommendation/:specific',
           routes: [
             {
               name: 'bizSides',
               text: '业务方配置',
-              path: '/fintech/recommendation/specific/biz-sides',
-              component: '@/domain/biz-side/views/biz-side-list/index',
+              path: '/fintech/recommendation/:specific/biz-sides',
+              component: '@/domain/biz-side/views/biz-side-list',
             },
             {
               name: 'recommendationCreateForm',
               path: '/otaku/animations/new',
-              component: '@/domain/animation/views/animation-form/index',
+              component: '@/domain/animation/views/animation-form',
             },
           ],
         },

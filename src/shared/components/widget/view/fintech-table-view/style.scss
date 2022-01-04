@@ -80,6 +80,20 @@
     height: $table-actions-height;
   }
 
+  &-search {
+    :global {
+      .ant-form {
+        .ant-form-item {
+          margin-right: 0;
+
+          + .ant-form-item {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+
   :global {
     .ActionWidget {
       cursor: pointer;
