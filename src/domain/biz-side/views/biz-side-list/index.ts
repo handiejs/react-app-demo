@@ -12,7 +12,7 @@ export default createView(context, {
   name: 'BizSideListView',
   category: 'list',
   renderType: 'fintech-table',
-  config: { operationColumnWidth: 200, hidePagination: true },
+  config: { operationColumnWidth: 200 },
   fields: [
     { name: 'token', config: { width: 160 } },
     { name: 'bizId', config: { width: 120 } },
