@@ -16,21 +16,6 @@ import style from './style.scss';
 import { findRouteDeeply } from './helper';
 
 export default class AdminLayout extends Component {
-  private resolveRoute(route) {
-    if (route.path === (this.props as any).location.pathname) {
-      return route;
-    }
-
-    const found = route.routes.find(
-      (r) =>
-        this.resolveRoute(r).path === (this.props as any).location.pathname,
-    );
-
-    console.log(found);
-
-    return found;
-  }
-
   private renderMenuItem(route): ReactNode {
     return (route.routes || []).length > 0 ? (
       <NavSubMenu
