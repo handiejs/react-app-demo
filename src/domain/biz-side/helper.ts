@@ -1,3 +1,5 @@
 const MODULE_NAME = 'businessSide';
 
-export { MODULE_NAME };
+const DIALOG_FORM_EVENT_NS = '__BIZ_SIDE_DIALOG_FORM_VIEW__';
+
+export { MODULE_NAME, DIALOG_FORM_EVENT_NS };

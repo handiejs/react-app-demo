@@ -6,24 +6,19 @@ import { ActionStructuralWidget } from '@/shared/components/widget/base';
 
 import { DIALOG_FORM_EVENT_NS } from '../../helper';
 
-interface ItemConfigEditActionState extends ActionWidgetState {}
-
 export default class ItemConfigEditActionWidget extends ActionStructuralWidget<
-  ItemConfigEditActionState,
+  ActionWidgetState,
   ActionWidgetConfig
 > {
-  public readonly state = {
-    disabled: false,
-  } as ItemConfigEditActionState;
-
   private handleClick(): void {
     this.$$view.emit(`show.${DIALOG_FORM_EVENT_NS}`);
   }
 
   public render(): ReactNode {
-    const { XButton, XDialog } = this.$$module.getComponents();
+    const { XButton } = this.$$module.getComponents();
 
     const buttonProps: Record<string, any> = {
+      disabled: this.state.disabled,
       onClick: () => this.handleClick(),
     };
 
