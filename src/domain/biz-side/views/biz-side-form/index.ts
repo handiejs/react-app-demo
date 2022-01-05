@@ -1,8 +1,5 @@
-import { createView } from 'handie-react';
+import { ListViewContext, ObjectViewContextDescriptor } from '@/shared/types';
 
-import { ViewDescriptor } from '@/shared/types';
-
-import context from '../../context';
 import ConfigFieldWidget from './ConfigField';
 import BizSideFormDialogViewWidget from './BizSideFormDialog';
 
@@ -21,7 +18,7 @@ import BizSideFormDialogViewWidget from './BizSideFormDialog';
 //   ],
 // } as ViewDescriptor);
 
-function getBizSideFormDescriptor(listViewContext, visible) {
+function getBizSideFormDescriptor(listViewContext: ListViewContext): ObjectViewContextDescriptor {
   return {
     name: 'BizSideFormView',
     category: 'object',
@@ -36,9 +33,8 @@ function getBizSideFormDescriptor(listViewContext, visible) {
       'random',
       { name: 'config', widget: ConfigFieldWidget },
     ],
-    initialValue: {
-      dialogVisible: visible,
-    },
+    initialValue: {},
+    parent: listViewContext,
   };
 }
 

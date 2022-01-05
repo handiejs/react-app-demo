@@ -4,25 +4,20 @@ import { ActionWidgetConfig, ActionWidgetState } from '@/shared/types';
 import { ViewRenderer } from '@/shared/components/renderer';
 import { ActionStructuralWidget } from '@/shared/components/widget/base';
 
-interface BizSideEditActionState extends ActionWidgetState {
-  dialogVisible: boolean;
-}
+import { DIALOG_FORM_EVENT_NS } from '../../helper';
 
-export default class EditActionWidget extends ActionStructuralWidget<
-  BizSideEditActionState,
+interface ItemConfigEditActionState extends ActionWidgetState {}
+
+export default class ItemConfigEditActionWidget extends ActionStructuralWidget<
+  ItemConfigEditActionState,
   ActionWidgetConfig
 > {
   public readonly state = {
     disabled: false,
-    dialogVisible: false,
-  } as BizSideEditActionState;
+  } as ItemConfigEditActionState;
 
   private handleClick(): void {
-    this.setState({ dialogVisible: true });
-  }
-
-  private handleDialogClose(): void {
-    this.setState({ dialogVisible: false });
+    this.$$view.emit(`show.${DIALOG_FORM_EVENT_NS}`);
   }
 
   public render(): ReactNode {
@@ -39,12 +34,10 @@ export default class EditActionWidget extends ActionStructuralWidget<
     return (
       <div className="ActionWidget EditActionWidget">
         <XButton {...buttonProps}>{this.props.action.text}</XButton>
-        {this.state.dialogVisible ? (
-          <ViewRenderer
-            view="businessSide.views.BizSideFormView"
-            params={[this.$$view, this.state.dialogVisible]}
-          />
-        ) : null}
+        <ViewRenderer
+          view="itemConfig.views.ItemConfigFormView"
+          params={[this.$$view]}
+        />
       </div>
     );
   }

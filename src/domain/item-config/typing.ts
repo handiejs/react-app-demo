@@ -1,6 +1,7 @@
 enum ItemStatus {
+  Fresh = '0',
   Online = '1',
-  Offline = '0',
+  Offline = '2',
 }
 
 interface RecommendedItem {
@@ -12,4 +13,4 @@ interface RecommendedItem {
   status: ItemStatus;
 }
 
-export { RecommendedItem };
+export { ItemStatus, RecommendedItem };

@@ -1,5 +1,6 @@
 import { ModelDescriptor } from '@/shared/types';
 
+import { BusinessStatus } from './typing';
 import { MODULE_NAME } from './helper';
 
 export default {
@@ -24,8 +25,8 @@ export default {
       label: '上线状态',
       dataType: 'enum',
       options: [
-        { name: 'online', value: '1', label: '已上线' },
-        { name: 'offline', value: '0', label: '已下线' },
+        { name: 'online', value: BusinessStatus.Online, label: '已上线' },
+        { name: 'offline', value: BusinessStatus.Offline, label: '已下线' },
       ],
     },
   ],

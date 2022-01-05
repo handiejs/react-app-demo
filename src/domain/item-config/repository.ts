@@ -18,4 +18,14 @@ async function getList(
     });
 }
 
-export { getList };
+async function deleteOne(params: { item: string; itemType: string }): Promise<ResponseResult> {
+  return httpClient.post('/fintech/api/manage/config/delete/item', params);
+}
+
+async function insert(
+  data: Pick<RecommendedItem, 'item' | 'itemType' | 'summary'>,
+): Promise<ResponseResult> {
+  return httpClient.post('/fintech/api/manage/config/insert/item', data);
+}
+
+export { getList, deleteOne, insert };

@@ -13,10 +13,10 @@ export default createView(context, {
   fields: [
     { name: 'title', config: { width: 200 } },
     'recommendId',
-    { name: 'score', config: { width: 200 } },
-    { name: 'ext1', config: { width: 90 } },
-    { name: 'ext2', config: { width: 90 } },
-    { name: 'ext3', config: { width: 90 } },
+    { name: 'score', config: { width: 120 } },
+    { name: 'ext1', config: { width: 180 } },
+    { name: 'ext2', config: { width: 180 } },
+    { name: 'ext3', config: { width: 180 } },
   ],
   search: {
     filters: [

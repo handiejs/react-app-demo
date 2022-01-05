@@ -2,6 +2,7 @@ import { createView } from 'handie-react';
 
 import { ViewDescriptor } from '@/shared/types';
 
+import { BusinessStatus } from '../../typing';
 import context from '../../context';
 import EditActionWidget from './EditAction';
 import ItemListFieldWidget from './ItemListField';
@@ -23,9 +24,9 @@ export default createView(context, {
   ],
   actions: [
     { text: '新增', context: 'free', primary: true, widget: EditActionWidget },
-    { text: '上线', available: '$value.status === "0"' },
-    { text: '下线', available: '$value.status === "1"' },
-    { text: '编辑', available: '$value.status === "0"' },
+    { text: '上线', available: `$value.status === "${BusinessStatus.Offline}"` },
+    { text: '下线', available: `$value.status === "${BusinessStatus.Online}"` },
+    { text: '编辑', available: `$value.status === "${BusinessStatus.Offline}"` },
     { text: '删除', danger: true },
   ],
   search: {

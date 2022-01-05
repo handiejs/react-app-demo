@@ -21,4 +21,4 @@ interface BusinessSide {
   status: BusinessStatus;
 }
 
-export { RecommendedItem, RecommendedStrategy, BusinessSide };
+export { RecommendedItem, RecommendedStrategy, BusinessStatus, BusinessSide };
