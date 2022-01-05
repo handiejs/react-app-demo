@@ -8,5 +8,9 @@ export default {
   name: MODULE_NAME,
   model,
   actions,
-  components: {},
+  imports: ['businessSide.services.getTokenList'],
+  components: {
+    XSelect: 'Select',
+    XOption: 'Option',
+  },
 } as ModuleDescriptor;

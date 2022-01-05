@@ -22,6 +22,7 @@ export {
   ViewContext,
   ListViewContext,
   ObjectViewContext,
+  BaseWidgetState,
   ActionWidgetConfig,
   ActionWidgetState,
   ObjectViewWidgetState,
