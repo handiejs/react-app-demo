@@ -1,4 +1,3 @@
-import { history } from 'umi';
 import { createView } from 'handie-react';
 
 import { ViewDescriptor } from '@/shared/types';
@@ -31,7 +30,7 @@ export default createView(context, {
   ],
   search: {
     filters: ['token'],
-    initialValue: () => ({ bizId: history.location.query!.bizId }),
+    initialValue: (_, { history }) => ({ bizId: history.getLocation().params.specific }),
     config: { searchable: false, resettable: false, hideFormControlLabel: true },
   },
 } as ViewDescriptor);

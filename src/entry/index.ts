@@ -1,38 +1,20 @@
-import {
-  HistoryLocation,
-  LocationDescriptor,
-  AppHelper,
-  isPlainObject,
-  createApp,
-} from 'handie-react';
 import { history } from 'umi';
+import { HistoryLocation, AppHelper, createApp } from 'handie-react';
 
 import { Dialog } from '@/shared/components/control';
 import components from '@/shared/components';
 import modules from '../domain';
 import actions from './actions';
+import { getLocation, resolveHistoryParams } from './adapters';
 import { setInterceptors } from './aspects';
 import theme from './theme';
 
 setInterceptors();
 
-function resolveHistoryParams(location: HistoryLocation): any {
-  let resolved: any;
-
-  if (isPlainObject(location)) {
-    const { path, query, params } = location as LocationDescriptor;
-
-    resolved = { pathname: path, query, state: params };
-  } else {
-    resolved = { pathname: location as string };
-  }
-
-  return resolved;
-}
-
 function createAppHelper(): AppHelper {
   return {
     history: {
+      getLocation,
       back: history.goBack,
       forward: history.goForward,
       go: history.go,

@@ -20,7 +20,7 @@ export default class RecommendationListViewWidget extends ListViewStructuralWidg
             >
               <Link
                 className={style['RecommendationListViewWidget-itemContent']}
-                to={`/fintech/recommendation/${bizId}/biz-sides?bizId=${bizId}`}
+                to={`/fintech/recommendation/${bizId}/biz-sides`}
               >
                 <span
                   className={style['RecommendationListViewWidget-itemIcon']}

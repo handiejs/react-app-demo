@@ -6,7 +6,7 @@ export default [
     context: 'free',
     text: '新增',
     execute: (context: ViewContext, { history }) =>
-      history.push({ name: `${context.getModuleContext().getModuleName()}NewForm` }),
+      history.push({ name: `${context.getModuleContext().getModuleName()}CreateForm` }),
   },
   {
     name: 'gotoEditFormView',

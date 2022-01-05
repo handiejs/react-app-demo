@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
 
-import { UnknownFieldStructuralWidget } from '@/shared/components/widget/base';
+import { UntypedFieldStructuralWidget } from '@/shared/components/widget/base';
 
 interface ConfigFieldState {
   activeTab: string;
 }
 
-export default class ConfigFieldWidget extends UnknownFieldStructuralWidget<
+export default class ConfigFieldWidget extends UntypedFieldStructuralWidget<
   any,
   ConfigFieldState
 > {

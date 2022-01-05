@@ -1,6 +1,8 @@
+import { match, compile } from 'path-to-regexp';
 import { ReactNode, Component } from 'react';
-import { Link } from 'umi';
+import { history, Link } from 'umi';
 
+import { findRouteDeeply } from '@/shared/utils/url';
 import {
   App as AppContainer,
   LayoutContainer,
@@ -13,17 +15,21 @@ import {
 } from '@/shared/components/control';
 
 import style from './style.scss';
-import { findRouteDeeply } from './helper';
 
 export default class AdminLayout extends Component {
-  private renderMenuItem(route): ReactNode {
+  private renderMenuItem(route, currentRoute): ReactNode {
+    const { params } =
+      match(currentRoute.path, { decode: decodeURIComponent })(
+        history.location.pathname,
+      ) || {};
+
     return (route.routes || []).length > 0 ? (
       <NavSubMenu
         key={`${route.name}-${route.routes.length}`}
         flag={`${route.name}-${route.routes.length}`}
         title={route.text || route.name}
       >
-        {route.routes.map((r) => this.renderMenuItem(r))}
+        {route.routes.map((r) => this.renderMenuItem(r, currentRoute))}
       </NavSubMenu>
     ) : (
       <NavMenuItem
@@ -31,12 +37,14 @@ export default class AdminLayout extends Component {
         flag={route.name}
         title={route.text || route.name}
       >
-        <Link to={route.path}>{route.text || route.name}</Link>
+        <Link to={params ? compile(route.path)(params) : route.path}>
+          {route.text || route.name}
+        </Link>
       </NavMenuItem>
     );
   }
 
-  private renderSideBarNavMenu(): ReactNode {
+  private renderSideBarNavMenu(currentRoute): ReactNode {
     const recommendationRoute = (((this.props as any).routes ||
       []) as any[]).find(({ name }) => name === 'fintech').routes[0];
 
@@ -44,12 +52,16 @@ export default class AdminLayout extends Component {
       <NavMenu className={style['FinTechAdminLayout-subNav']}>
         {recommendationRoute.routes
           .filter(({ name }) => name !== 'recommendationList')
-          .map((route) => this.renderMenuItem(route))}
+          .map((route) => this.renderMenuItem(route, currentRoute))}
       </NavMenu>
     );
   }
 
   public render(): ReactNode {
+    const route = findRouteDeeply((this.props as any).location.pathname, [
+      (this.props as any).route,
+    ]);
+
     return (
       <AppContainer className={style.FinTechAdminLayout}>
         <LayoutContainer>
@@ -69,15 +81,13 @@ export default class AdminLayout extends Component {
             </nav>
           </LayoutHeader>
           <LayoutContainer>
-            {!findRouteDeeply((this.props as any).location.pathname, [
-              (this.props as any).route,
-            ]).hideSidebar ? (
+            {!route.hideSidebar ? (
               <LayoutAside
                 className={style['FinTechAdminLayout-sidebar']}
                 width={266}
               >
                 <nav className={style['FinTechAdminLayout-menu']}>
-                  {this.renderSideBarNavMenu()}
+                  {this.renderSideBarNavMenu(route)}
                 </nav>
               </LayoutAside>
             ) : null}
