@@ -1,5 +1,3 @@
 const MODULE_NAME = 'itemConfig';
 
-const DIALOG_FORM_EVENT_NS = '__ITEM_CONFIG_DIALOG_FORM_VIEW__';
-
-export { MODULE_NAME, DIALOG_FORM_EVENT_NS };
+export { MODULE_NAME };

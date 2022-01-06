@@ -4,7 +4,7 @@ import { ViewDescriptor } from '@/shared/types';
 
 import { BusinessStatus } from '../../typing';
 import context from '../../context';
-import BizSideEditActionWidget from './EditAction';
+
 import ItemListFieldWidget from './ItemListField';
 import StrategyListFieldWidget from './StrategyListField';
 
@@ -23,7 +23,13 @@ export default createView(context, {
     { name: 'status', config: { width: 90 } },
   ],
   actions: [
-    { text: '新增', context: 'free', primary: true, widget: BizSideEditActionWidget },
+    {
+      text: '新增',
+      context: 'free',
+      primary: true,
+      renderType: 'dialogViewButton',
+      config: { view: 'businessSide.views.BizSideFormView' },
+    },
     { text: '上线', available: `$value.status === "${BusinessStatus.Offline}"` },
     { text: '下线', available: `$value.status === "${BusinessStatus.Online}"` },
     { text: '编辑', available: `$value.status === "${BusinessStatus.Offline}"` },

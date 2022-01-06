@@ -5,7 +5,6 @@ import { pick } from '@/shared/utils';
 
 import { ItemStatus } from '../../typing';
 import context from '../../context';
-import ItemConfigEditActionWidget from './EditAction';
 
 export default createView(context, {
   name: 'ItemConfigListView',
@@ -20,7 +19,13 @@ export default createView(context, {
     { name: 'status', config: { width: 90 } },
   ],
   actions: [
-    { text: '新增', context: 'free', primary: true, widget: ItemConfigEditActionWidget },
+    {
+      text: '新增',
+      context: 'free',
+      primary: true,
+      renderType: 'dialogViewButton',
+      config: { view: 'itemConfig.views.ItemConfigFormView' },
+    },
     { text: '配置缓存' },
     { text: '清空缓存' },
     { text: '生成', available: `$value.status !== "${ItemStatus.Online}"` },
