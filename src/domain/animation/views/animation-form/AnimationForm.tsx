@@ -1,8 +1,7 @@
 import { ReactNode } from 'react';
 
 import { ObjectViewWidgetState } from '@/shared/types';
-import { ObjectViewStructuralWidget } from '@/shared/components/widget/base';
-import { FormRenderer } from '@/shared/components/renderer';
+import { FormViewStructuralWidget } from '@/shared/components/widget/base';
 
 import { getComponents } from '../../helper';
 
@@ -33,7 +32,7 @@ const treeData = [
   },
 ];
 
-export default class AnimationForm extends ObjectViewStructuralWidget<AnimationFormState> {
+export default class AnimationForm extends FormViewStructuralWidget<AnimationFormState> {
   public readonly state = {
     loading: false,
     dataSource: {},
@@ -45,11 +44,6 @@ export default class AnimationForm extends ObjectViewStructuralWidget<AnimationF
     expandedNodes: [treeData[0].id],
     selectedNodes: [2],
   };
-
-  private get id() {
-    // return this.$route.params.id || '';
-    return '';
-  }
 
   private filterTreeNode(keyword, data): boolean {
     return data.name.indexOf(keyword) > -1;
@@ -100,20 +94,35 @@ export default class AnimationForm extends ObjectViewStructuralWidget<AnimationF
     );
   }
 
+  public componentDidMount(): void {
+    super.componentDidMount();
+
+    this.on({
+      fieldChange: ({ name, value }) => console.log(name, value),
+      fieldValidate: ({ name, result }) =>
+        console.log(
+          `Validation result for field '${name}'`,
+          result.success,
+          result.message,
+          result.type,
+        ),
+      submit: () => {
+        console.log('Form submitted!');
+      },
+    });
+
+    setTimeout(
+      () => this.$$view.setFieldValue('ghost', 'You can not see me!'),
+      3000,
+    );
+  }
+
   public render(): ReactNode {
     const { XButton, Wait, Popover } = this.$$module.getComponents();
 
     return (
       <Wait busy={this.state.loading}>
-        <FormRenderer
-          fields={this.fields}
-          value={this.state.value}
-          validation={this.state.validation}
-          config={this.config}
-          onChange={(fieldName, value) =>
-            this.onFieldValueChange(fieldName, value)
-          }
-        />
+        {this.renderForm()}
         <XButton color="primary" onClick={() => this.$$view.submit()}>
           保存
         </XButton>
@@ -131,32 +140,5 @@ export default class AnimationForm extends ObjectViewStructuralWidget<AnimationF
         <XButton onClick={() => this.handleConfirm()}>确认对话框</XButton>
       </Wait>
     );
-  }
-
-  public componentDidMount(): void {
-    const ctx = this.$$view;
-
-    this.on({
-      fieldChange: ({ name, value }) => console.log(name, value),
-      fieldValidate: ({ name, result }) =>
-        console.log(
-          `Validation result for field '${name}'`,
-          result.success,
-          result.message,
-          result.type,
-        ),
-      submit: () => {
-        console.log('Form submitted!');
-      },
-    });
-
-    if (this.id && ctx.getOne) {
-      ctx.getOne(this.id, (data) => {
-        this.state.dataSource = data;
-        ctx.setValue(data);
-      });
-    }
-
-    setTimeout(() => ctx.setFieldValue('ghost', 'You can not see me!'), 3000);
   }
 }
