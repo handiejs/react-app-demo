@@ -1,1 +1,1 @@
-export * from '@zora/adapter-ant-design';
+export * from '@zoras/adapter-ant-design';

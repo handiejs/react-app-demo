@@ -6,8 +6,9 @@ interface RecommendedItem {
 interface RecommendedStrategy {}
 
 enum BusinessStatus {
+  Fresh = '0',
   Online = '1',
-  Offline = '0',
+  Offline = '2',
 }
 
 interface BusinessSide {

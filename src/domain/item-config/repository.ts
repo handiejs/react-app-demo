@@ -4,7 +4,7 @@ import httpClient from '@/shared/utils/http';
 import { RecommendedItem } from './typing';
 
 async function getList(
-  condition: Pagination & RecommendedItem,
+  condition: Pagination & RecommendedItem = {} as any,
 ): Promise<ResponseResult<RecommendedItem[]>> {
   return httpClient
     .post<RecommendedItem[]>('/fintech/api/manage/config/list/items', condition)

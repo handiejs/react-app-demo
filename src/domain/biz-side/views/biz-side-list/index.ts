@@ -5,6 +5,7 @@ import { ViewDescriptor } from '@/shared/types';
 import { BusinessStatus } from '../../typing';
 import context from '../../context';
 
+import { makeBizTokenOnlineOrOffline } from './helper';
 import ItemListFieldWidget from './ItemListField';
 import StrategyListFieldWidget from './StrategyListField';
 
@@ -27,13 +28,21 @@ export default createView(context, {
       text: '新增',
       context: 'free',
       primary: true,
-      renderType: 'dialogViewButton',
+      renderType: 'dialog-view-button',
       config: { view: 'businessSide.views.BizSideFormView' },
     },
-    { text: '上线', available: `$value.status === "${BusinessStatus.Offline}"` },
-    { text: '下线', available: `$value.status === "${BusinessStatus.Online}"` },
-    { text: '编辑', available: `$value.status === "${BusinessStatus.Offline}"` },
-    { text: '删除', danger: true },
+    {
+      text: '上线',
+      execute: makeBizTokenOnlineOrOffline.bind(null, BusinessStatus.Online),
+      available: `$value.status !== "${BusinessStatus.Online}"`,
+    },
+    { text: '编辑', available: `$value.status !== "${BusinessStatus.Online}"` },
+    {
+      text: '下线',
+      execute: makeBizTokenOnlineOrOffline.bind(null, BusinessStatus.Offline),
+      confirm: true,
+      available: `$value.status === "${BusinessStatus.Online}"`,
+    },
   ],
   search: {
     filters: ['token'],

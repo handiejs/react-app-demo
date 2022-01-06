@@ -10,6 +10,11 @@ export default {
   model,
   actions,
   views,
+  exports: {
+    services: {
+      getItemList: actions.getList,
+    },
+  },
   components: {
     XButton: 'Button',
     XDialog: 'Dialog',

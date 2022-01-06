@@ -17,6 +17,10 @@ function findRouteDeeply(pathname: string, routes: any[]) {
     }
 
     route = findRouteDeeply(pathname, r.routes);
+
+    if (route) {
+      break;
+    }
   }
 
   return route;

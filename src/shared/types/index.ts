@@ -1,4 +1,5 @@
 export {
+  AppHelper,
   ThemeOptions,
   ComponentCtor,
   ComponentType,
@@ -12,6 +13,7 @@ export {
   ModelDescriptor,
   FilterDescriptor,
   ActionDescriptor,
+  EnumFieldOption,
   ViewFieldDescriptor,
   ViewDescriptor,
   ModuleDescriptor,

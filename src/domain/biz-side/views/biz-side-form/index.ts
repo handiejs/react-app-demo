@@ -1,7 +1,5 @@
 import { ListViewContext, ObjectViewContextDescriptor } from '@/shared/types';
 
-import ConfigFieldWidget from './ConfigField';
-
 function getBizSideFormDescriptor(listViewContext: ListViewContext): ObjectViewContextDescriptor {
   return {
     name: 'BizSideFormView',
@@ -11,19 +9,20 @@ function getBizSideFormDescriptor(listViewContext: ListViewContext): ObjectViewC
       title: '新增推荐业务',
       dialogWidth: 832,
       formControlLabelWidth: 110,
-      arrangement: '2|2|2',
+      arrangement: '2|2|1',
     },
     fields: [
       'bizId',
       'token',
       'itemList',
       'interfaceName',
-      'strategyList',
+      // 'strategyList',
       'shuffleCount',
-      { name: 'config', widget: ConfigFieldWidget },
+      'strategys',
     ],
-    initialValue: {},
+    initialValue: { strategys: '' },
     parent: listViewContext,
+    validate: 'submit',
   };
 }
 

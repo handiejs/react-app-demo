@@ -1,2 +1,2 @@
 export * from '@ntks/toolbox';
-export { getComponents, getRenderer, createModuleContext } from 'handie-react';
+export { getComponents, getDependencies, getRenderer, createModuleContext } from 'handie-react';
