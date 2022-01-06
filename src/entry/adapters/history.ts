@@ -1,6 +1,6 @@
 import { match, compile } from 'path-to-regexp';
 import { history } from 'umi';
-import { LocationDescriptor, HistoryLocation, isPlainObject } from 'handie-react';
+import { LocationDescriptor, HistoryLocation, isPlainObject } from 'handie-react-starter-antd';
 
 import { findRouteDeeply } from '@/shared/utils/url';
 

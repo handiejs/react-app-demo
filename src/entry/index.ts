@@ -1,5 +1,5 @@
 import { history } from 'umi';
-import { HistoryLocation, AppHelper, createApp } from 'handie-react';
+import { HistoryLocation, AppHelper, createApp } from 'handie-react-starter-antd';
 
 import { Dialog } from '@/shared/components/control';
 import components from '@/shared/components';

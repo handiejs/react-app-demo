@@ -1,6 +1,5 @@
-import { createView } from 'handie-react';
-
 import { ObjectViewContextDescriptor } from '@/shared/types';
+import { createView } from '@/shared/utils';
 
 import context from '../../context';
 import AnimationForm from './AnimationForm';

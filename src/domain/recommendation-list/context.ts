@@ -1,4 +1,4 @@
-import { createModuleContext } from 'handie-react';
+import { createModuleContext } from '@/shared/utils';
 
 import { MODULE_NAME } from './helper';
 

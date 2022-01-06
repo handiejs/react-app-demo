@@ -1,1 +1,1 @@
-export * from '@zoras/adapter-ant-design';
+export * from 'handie-react-starter-antd/controls';

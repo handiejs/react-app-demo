@@ -35,4 +35,4 @@ export {
   ColumnContext,
   CellComponentRenderer,
   FieldComponentRenderer,
-} from 'handie-react';
+} from 'handie-react-starter-antd';

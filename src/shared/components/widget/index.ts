@@ -1,2 +1,2 @@
-export * from '@handie/squirtle';
+export * from 'handie-react-starter-antd/widgets';
 export * from './view';

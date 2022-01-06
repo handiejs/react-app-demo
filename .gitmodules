@@ -22,3 +22,6 @@
 [submodule "petals-basic"]
 	path = external/petals-basic
 	url = https://github.com/petals-ui/basic.git
+[submodule "react-starter-antd"]
+	path = external/react-starter-antd
+	url = https://github.com/handiejs/handie-react-starter-antd.git
