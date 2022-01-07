@@ -1,26 +1,33 @@
 import { Pagination, ResponseResult, EnumFieldOption } from '@/shared/types';
-import { omit } from '@/shared/utils';
+import { omit, pick } from '@/shared/utils';
 import httpClient from '@/shared/utils/http';
 
 import { BusinessSide } from './typing';
 import { getDependencies } from './helper';
 
 async function getList(
-  condition: Pagination & BusinessSide,
+  condition: Partial<Pagination & BusinessSide>,
 ): Promise<ResponseResult<BusinessSide[]>> {
   return httpClient
     .post<BusinessSide[]>(
       '/fintech/api/manage/config/list/tokens',
       condition.token ? condition : omit(condition, ['token']),
     )
-    .then(result => {
-      return result.success
+    .then(result =>
+      result.success
         ? {
             ...result,
             data: result.data.map(r => ({ ...r, id: r.token, strategyList: r.strategyList || [] })),
           }
-        : result;
-    });
+        : result,
+    );
+}
+
+async function getOne(params: BusinessSide): Promise<ResponseResult<BusinessSide>> {
+  return getList(pick(params, ['bizId', 'token'])).then(({ data, ...others }) => ({
+    ...others,
+    data: (data || [])[0],
+  }));
 }
 
 async function insert({ itemList, ...others }): Promise<ResponseResult> {
@@ -67,4 +74,4 @@ async function resolveItemListOptions(): Promise<ResponseResult<EnumFieldOption[
   });
 }
 
-export { getList, insert, makeOnline, makeOffline, resolveItemListOptions };
+export { getList, getOne, insert, makeOnline, makeOffline, resolveItemListOptions };

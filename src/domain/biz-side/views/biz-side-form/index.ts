@@ -21,7 +21,7 @@ function getBizSideFormDescriptor(listViewContext: ListViewContext): ObjectViewC
       'strategys',
     ],
     initialValue: { strategys: '' },
-    parent: listViewContext,
+    opener: listViewContext,
     validate: 'submit',
   };
 }

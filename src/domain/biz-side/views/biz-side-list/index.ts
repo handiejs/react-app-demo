@@ -35,7 +35,12 @@ export default createView(context, {
       execute: makeBizTokenOnlineOrOffline.bind(null, BusinessStatus.Online),
       available: `$value.status !== "${BusinessStatus.Online}"`,
     },
-    { text: '编辑', available: `$value.status !== "${BusinessStatus.Online}"` },
+    {
+      text: '编辑',
+      renderType: 'dialog-view-button',
+      config: { view: 'businessSide.views.BizSideFormView' },
+      available: `$value.status !== "${BusinessStatus.Online}"`,
+    },
     {
       text: '下线',
       execute: makeBizTokenOnlineOrOffline.bind(null, BusinessStatus.Offline),
