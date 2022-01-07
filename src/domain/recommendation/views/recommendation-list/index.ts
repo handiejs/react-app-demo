@@ -5,16 +5,8 @@ import context from '../../context';
 import RecommendationListViewWidget from './RecommendationList';
 
 export default createView(context, {
-  name: 'BizSideListView',
+  name: 'RecommendationListView',
   category: 'list',
   widget: RecommendationListViewWidget,
-  fields: [
-    'name',
-    'id',
-    'interfaceCategory',
-    'recommendedList',
-    'recommendedStrategies',
-    'random',
-    'status',
-  ],
+  fields: [],
 } as ViewDescriptor);
