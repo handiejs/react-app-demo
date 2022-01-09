@@ -5,4 +5,4 @@ export {
   getRenderer,
   createModuleContext,
   createView,
-} from 'handie-react-starter-antd';
+} from 'handie-react-starter-umi';

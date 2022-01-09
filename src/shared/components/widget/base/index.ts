@@ -1,1 +1,1 @@
-export * from 'handie-react-starter-antd/widgets/class';
+export * from 'handie-react-starter-umi/widgets/class';

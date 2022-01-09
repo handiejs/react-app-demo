@@ -21,6 +21,7 @@ export default defineConfig({
     '@handie/squirtle/dist': resolve('./external/squirtle/src'),
     '@handie/squirtle': resolve('./external/squirtle/src/index.ts'),
     'handie-react-starter-antd': resolve('./external/react-starter-antd/src'),
+    'handie-react-starter-umi': resolve('./external/react-starter-umi/src'),
   },
   nodeModulesTransform: {
     type: 'none',
@@ -30,7 +31,7 @@ export default defineConfig({
     sassOptions: {
       fiber: require('fibers'),
     },
-    prependData: `@import "~handie-react-starter-antd/styles/helper";`,
+    prependData: `@import "~handie-react-starter-umi/styles/helper";`,
   },
   routes,
   fastRefresh: {},

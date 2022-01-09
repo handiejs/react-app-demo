@@ -1,8 +1,8 @@
 import { match, compile } from 'path-to-regexp';
 import { ReactNode, Component } from 'react';
 import { history, Link } from 'umi';
+import { findRouteDeeply } from 'handie-react-starter-umi';
 
-import { findRouteDeeply } from '@/shared/utils/url';
 import {
   App as AppContainer,
   LayoutContainer,

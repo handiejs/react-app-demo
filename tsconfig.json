@@ -30,7 +30,9 @@
       "@handie/squirtle": ["external/squirtle/src/index.ts"],
       "@handie/squirtle/dist/*": ["external/squirtle/src/*"],
       "handie-react-starter-antd": ["external/react-starter-antd/src/index.ts"],
-      "handie-react-starter-antd/*": ["external/react-starter-antd/src/*"]
+      "handie-react-starter-antd/*": ["external/react-starter-antd/src/*"],
+      "handie-react-starter-umi": ["external/react-starter-umi/src/index.ts"],
+      "handie-react-starter-umi/*": ["external/react-starter-umi/src/*"]
     }
   },
   "include": [

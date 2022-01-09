@@ -25,3 +25,6 @@
 [submodule "react-starter-antd"]
 	path = external/react-starter-antd
 	url = https://github.com/handiejs/handie-react-starter-antd.git
+[submodule "react-starter-umi"]
+	path = external/react-starter-umi
+	url = https://github.com/handiejs/handie-react-starter-umi.git
