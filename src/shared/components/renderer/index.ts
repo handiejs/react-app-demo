@@ -1,1 +1,1 @@
-export * from 'handie-react-starter-umi/renderers';
+export * from 'handie-react-starter-umi/dist/renderers';

@@ -1,1 +1,1 @@
-export * from 'handie-react-starter-umi/controls';
+export * from 'handie-react-starter-umi/dist/controls';
