@@ -3,7 +3,7 @@
     "strict": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "target": "esnext",
+    "target": "es2015",
     "lib": ["es2015", "es2016", "es2017", "dom"],
     "importHelpers": true,
     "noImplicitThis": false,
@@ -30,9 +30,9 @@
       // "@handie/squirtle": ["external/squirtle/src/index.ts"],
       // "@handie/squirtle/dist/*": ["external/squirtle/src/*"],
       // "handie-react-starter-antd": ["external/react-starter-antd/src/index.ts"],
-      // "handie-react-starter-antd/*": ["external/react-starter-antd/src/*"],
+      // "handie-react-starter-antd/dist/*": ["external/react-starter-antd/src/*"],
       // "handie-react-starter-umi": ["external/react-starter-umi/src/index.ts"],
-      // "handie-react-starter-umi/*": ["external/react-starter-umi/src/*"]
+      // "handie-react-starter-umi/dist/*": ["external/react-starter-umi/src/*"]
     }
   },
   "include": [

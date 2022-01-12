@@ -20,7 +20,7 @@ export default class LoginFormViewWidget extends ObjectViewStructuralWidget {
     return (
       <div className={style.LoginFormViewWidget}>
         <div className={style['LoginFormViewWidget-header']}>
-          <h1>推荐中心</h1>
+          <h1>Handie</h1>
         </div>
         <div className={style['LoginFormViewWidget-body']}>
           <FormRenderer

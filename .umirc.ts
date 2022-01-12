@@ -7,7 +7,7 @@ function resolve(dir) {
 }
 
 export default defineConfig({
-  alias:{
+  alias: {
     // '@petals/basic/style': resolve('./external/petals-basic/src/style'),
     // '@petals/basic': resolve('./external/petals-basic/src/index.ts'),
     // 'petals-ui/dist': resolve('./external/petals/packages/petals/src'),
@@ -20,19 +20,17 @@ export default defineConfig({
     // 'handie-react': resolve('./external/handie-react/src/index.ts'),
     // '@handie/squirtle/dist': resolve('./external/squirtle/src'),
     // '@handie/squirtle': resolve('./external/squirtle/src/index.ts'),
-    // 'handie-react-starter-antd': resolve('./external/react-starter-antd/src'),
-    // 'handie-react-starter-umi': resolve('./external/react-starter-umi/src'),
+    // 'handie-react-starter-antd/dist': resolve('./external/react-starter-antd/src'),
+    // 'handie-react-starter-antd': resolve('./external/react-starter-antd/src/index.ts'),
+    // 'handie-react-starter-umi/dist': resolve('./external/react-starter-umi/src'),
+    // 'handie-react-starter-umi': resolve('./external/react-starter-umi/src/index.ts'),
   },
-  nodeModulesTransform: {
-    type: 'none',
-  },
+  nodeModulesTransform: { type: 'none' },
   extraBabelIncludes: ['@zoras/core', '@zoras/adapter-ant-design', '@handie/squirtle'],
   sass: {
     implementation: require('sass'),
-    sassOptions: {
-      fiber: require('fibers'),
-    },
-    prependData: `@import "~handie-react-starter-umi/dist/styles/helper";`,
+    sassOptions: { fiber: require('fibers') },
+    prependData: `@import "~@/shared/styles/helper";`,
   },
   routes,
   fastRefresh: {},

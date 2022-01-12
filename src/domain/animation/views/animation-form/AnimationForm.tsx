@@ -95,8 +95,6 @@ export default class AnimationForm extends FormViewStructuralWidget<AnimationFor
   }
 
   public componentDidMount(): void {
-    super.componentDidMount();
-
     this.on({
       fieldChange: ({ name, value }) => console.log(name, value),
       fieldValidate: ({ name, result }) =>
