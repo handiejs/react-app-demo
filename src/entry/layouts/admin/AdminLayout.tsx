@@ -1,5 +1,6 @@
 import { ReactNode, Component } from 'react';
 import { Link } from 'umi';
+import { getAppHelper } from 'handie-react-starter-umi';
 
 import { includes } from '@/shared/utils';
 import {
@@ -18,7 +19,7 @@ export default class AdminLayout extends Component {
     return (route.routes || []).length > 0 ? (
       <NavSubMenu
         key={`${route.name}-${route.routes.length}`}
-        flag={`${route.name}-${route.routes.length}`}
+        flag={`${route.name}`}
         title={route.name}
       >
         {route.routes.map((r) => this.renderMenuItem(r))}
@@ -31,8 +32,13 @@ export default class AdminLayout extends Component {
   }
 
   private renderSideBarNavMenu(): ReactNode {
+    const location = getAppHelper().history.getLocation();
+
     return (
-      <NavMenu>
+      <NavMenu
+        activeFlag={location.name}
+        openFlags={location.ancestors.map((a) => a.name)}
+      >
         {(((this.props as any).routes || []) as any[])
           .filter(({ name }) => !includes(name, ['root', 'fintech']))
           .map((route) => this.renderMenuItem(route))}
