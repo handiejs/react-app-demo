@@ -4,6 +4,7 @@ import { ObjectViewWidgetState } from '@/shared/types';
 import { FormViewStructuralWidget } from '@/shared/components/widget/base';
 
 import { getComponents } from '../../helper';
+import style from './style.scss';
 
 interface AnimationFormState extends ObjectViewWidgetState {
   popoverVisible: boolean;
@@ -32,7 +33,7 @@ const treeData = [
   },
 ];
 
-export default class AnimationForm extends FormViewStructuralWidget<AnimationFormState> {
+export default class AnimationFormViewWidget extends FormViewStructuralWidget<AnimationFormState> {
   public readonly state = {
     loading: false,
     dataSource: {},
@@ -69,7 +70,7 @@ export default class AnimationForm extends FormViewStructuralWidget<AnimationFor
   }
 
   private handleAlert(): void {
-    (getComponents().XDialog as any).alert(
+    (getComponents().Dialog as any).alert(
       <>
         <span style={{ color: '#f00' }}>Good</span> Job!!!
       </>,
@@ -79,9 +80,9 @@ export default class AnimationForm extends FormViewStructuralWidget<AnimationFor
   }
 
   private handleConfirm(): void {
-    const { XDialog, Message } = getComponents();
+    const { Dialog, Message } = getComponents();
 
-    (XDialog as any).confirm(
+    (Dialog as any).confirm(
       <p>
         想看第二个
         <br />
@@ -109,33 +110,38 @@ export default class AnimationForm extends FormViewStructuralWidget<AnimationFor
       },
     });
 
+    this.$$view.on(`alert.${this.$$view.getId()}`, this.handleAlert);
+    this.$$view.on(`confirm.${this.$$view.getId()}`, this.handleConfirm);
+
     setTimeout(
       () => this.$$view.setFieldValue('ghost', 'You can not see me!'),
       3000,
     );
+
+    this.fetchData();
+  }
+
+  public componentWillUnmount(): void {
+    super.componentWillUnmount();
+
+    const ctx = this.$$view;
+    const id = ctx.getId();
+
+    ctx.off(`alert.${id}`, this.handleAlert);
+    ctx.off(`confirm.${id}`, this.handleConfirm);
   }
 
   public render(): ReactNode {
-    const { XButton, Wait, Popover } = this.$$module.getComponents();
+    const { Wait } = this.$$module.getComponents();
 
     return (
-      <Wait busy={this.state.loading}>
-        {this.renderForm()}
-        <XButton color="primary" onClick={() => this.$$view.submit()}>
-          保存
-        </XButton>
-        <Popover
-          content="abc"
-          trigger="click"
-          visible={this.state.popoverVisible}
-          onVisibleChange={(visible) =>
-            this.setState({ popoverVisible: visible })
-          }
-        >
-          <XButton>查看搜索树</XButton>
-        </Popover>
-        <XButton onClick={() => this.handleAlert()}>提示对话框</XButton>
-        <XButton onClick={() => this.handleConfirm()}>确认对话框</XButton>
+      <Wait className={style.AnimationFormViewWidget} busy={this.state.loading}>
+        {this.renderForm({
+          className: style['AnimationFormViewWidget-form'],
+          children: this.renderActionBar(
+            style['AnimationFormViewWidget-actionBar'],
+          ),
+        })}
       </Wait>
     );
   }

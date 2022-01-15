@@ -8,5 +8,5 @@ export default {
   name: MODULE_NAME,
   model,
   actions,
-  components: { XButton: 'Button', XDialog: 'Dialog', Message: true, Wait: true, Popover: true },
+  components: { Button: true, Dialog: true, Message: true, Wait: true, Popover: true },
 } as ModuleDescriptor;
