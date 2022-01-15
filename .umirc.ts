@@ -7,6 +7,7 @@ function resolve(dir) {
 }
 
 export default defineConfig({
+  title:'React app demo',
   alias: {
     // '@petals/basic/style': resolve('./external/petals-basic/src/style'),
     // '@petals/basic': resolve('./external/petals-basic/src/index.ts'),

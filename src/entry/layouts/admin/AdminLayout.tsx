@@ -1,62 +1,44 @@
-import { ReactNode, Component } from 'react';
+import { ReactNode } from 'react';
 import { Link } from 'umi';
-import { getAppHelper } from 'handie-react-starter-umi';
 
-import { includes } from '@/shared/utils';
 import {
   App as AppContainer,
   LayoutContainer,
   LayoutHeader,
   LayoutMain,
   LayoutAside,
-  NavMenu,
-  NavMenuItem,
-  NavSubMenu,
 } from '@/shared/components/control';
+import { AdminLayoutStructuralWidget } from '@/shared/components/widget/base';
 
-export default class AdminLayout extends Component {
-  private renderMenuItem(route): ReactNode {
-    return (route.routes || []).length > 0 ? (
-      <NavSubMenu
-        key={`${route.name}-${route.routes.length}`}
-        flag={`${route.name}`}
-        title={route.name}
-      >
-        {route.routes.map((r) => this.renderMenuItem(r))}
-      </NavSubMenu>
-    ) : (
-      <NavMenuItem key={route.name} flag={route.name} title={route.name}>
-        <Link to={route.path}>{route.name}</Link>
-      </NavMenuItem>
-    );
+import style from './style.scss';
+
+export default class AdminLayoutWidget extends AdminLayoutStructuralWidget {
+  private renderNavLink(text: string, location: string): ReactNode {
+    return <Link to={location}>{text}</Link>;
   }
 
-  private renderSideBarNavMenu(): ReactNode {
-    const location = getAppHelper().history.getLocation();
-
-    return (
-      <NavMenu
-        activeFlag={location.name}
-        openFlags={location.ancestors.map((a) => a.name)}
-      >
-        {(((this.props as any).routes || []) as any[])
-          .filter(({ name }) => !includes(name, ['root', 'fintech']))
-          .map((route) => this.renderMenuItem(route))}
-      </NavMenu>
-    );
+  constructor(props) {
+    super(props);
+    this.setStyleClassNames(style);
   }
 
   public render(): ReactNode {
     return (
-      <AppContainer>
+      <AppContainer className={style.AdminLayoutWidget}>
         <LayoutContainer>
-          <LayoutAside width={266}>
-            <Link to="/">Handie for React</Link>
-            <nav>{this.renderSideBarNavMenu()}</nav>
+          <LayoutAside className={style['AdminLayoutWidget-aside']} width={266}>
+            <Link className={style['AdminLayoutWidget-brand']} to="/">
+              Handie for React
+            </Link>
+            {this.renderSubNav(this.renderNavLink)}
           </LayoutAside>
-          <LayoutContainer>
-            <LayoutHeader>页头</LayoutHeader>
-            <LayoutMain>{this.props.children}</LayoutMain>
+          <LayoutContainer className={style['AdminLayoutWidget-content']}>
+            <LayoutHeader className={style['AdminLayoutWidget-header']}>
+              {this.renderNavMenu(this.renderNavLink)}
+            </LayoutHeader>
+            <LayoutMain className={style['AdminLayoutWidget-main']}>
+              {this.props.children}
+            </LayoutMain>
           </LayoutContainer>
         </LayoutContainer>
       </AppContainer>
