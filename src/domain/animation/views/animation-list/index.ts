@@ -2,7 +2,7 @@ import { ViewDescriptor } from '@/shared/types';
 import { createView } from '@/shared/utils';
 
 import context from '../../context';
-import EpisodesField from './EpisodesField';
+import AnimationListEpisodesFieldWidget from './EpisodesField';
 
 export default createView(context, {
   name: 'AnimationListView',
@@ -15,7 +15,7 @@ export default createView(context, {
     {
       name: 'episodes',
       label: '集数',
-      widget: EpisodesField,
+      widget: AnimationListEpisodesFieldWidget,
       config: { width: '80', align: 'center' },
     },
   ],

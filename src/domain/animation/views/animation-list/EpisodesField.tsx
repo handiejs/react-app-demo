@@ -4,7 +4,7 @@ import { RelationFieldStructuralWidget } from '@/shared/components/widget/base';
 
 import { AnimationEntity } from '../../typing';
 
-export default class AnimationListEpisodesField extends RelationFieldStructuralWidget<
+export default class AnimationListEpisodesFieldWidget extends RelationFieldStructuralWidget<
   AnimationEntity[]
 > {
   public render(): ReactNode {
