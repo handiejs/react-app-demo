@@ -20,5 +20,6 @@ export default {
     },
     { name: 'description', label: '简介', dataType: 'text', max: 200 },
     { name: 'episodes', label: '剧集', dataType: 'o2m' },
+    { name: 'dateRange', label: '日期范围', dataType: 'date' },
   ],
 } as ModelDescriptor;

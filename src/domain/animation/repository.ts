@@ -8,7 +8,10 @@ async function getList(condition: Pagination): Promise<ResponseResult<AnimationE
 }
 
 async function getOne(id: string): Promise<ResponseResult<AnimationEntity>> {
-  return httpClient.get(`/api/animations/${id}`);
+  return httpClient.get(`/api/animations/${id}`).then(({ data, ...others }) => ({
+    ...others,
+    data: { ...data, dateRange: [data.date.start, data.date.end], startDate: data.date.start },
+  }));
 }
 
 async function deleteList(
