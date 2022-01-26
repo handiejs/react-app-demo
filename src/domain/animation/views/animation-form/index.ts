@@ -11,13 +11,35 @@ export default createView(context, {
   category: 'object',
   // renderType: 'form',
   widget: AnimationFormViewWidget,
-  config: { formControlLabelWidth: 80 },
+  config: {
+    formControlLabelWidth: 80,
+    arrangement: value =>
+      value.form === 'ova'
+        ? '(简要111:xs-12,xs-12|xs-12)(哈拉111:xs-12,xs-12|xs-12,xs-12)'
+        : '(简要222:xs-12|xs-12,xs-12)(哈拉222:xs-12,xs-12|xs-12,xs-12)',
+  },
   fields: [
-    { name: 'title', hint: '哈哈' },
+    { name: 'title', hint: '哈哈', config: { prefix: 'holy', suffix: 'shit' } },
     'description',
     'form',
     'episodes',
+    {
+      name: 'startDate',
+      label: '开始日期',
+      dataType: 'date',
+      // renderType: 'date-time',
+      // config: { format: 'YYYY 年 MM 月 DD 日' },
+    },
+    { name: 'ss', label: '集数', dataType: 'integer', config: { prefix: 'holy', suffix: 'shit' } },
+    {
+      name: 'dateRange',
+      renderType: 'date-time-range',
+      readonly: '$value.form==="ova"',
+      // config: { format: 'YYYY 年 MM 月 DD 日' /*, fromField: 'beginDate', toField: 'endDate' */ },
+    },
     { name: 'ghost', label: '幽灵', hidden: true },
+    { name: 'beginDate', label: 'holy', hidden: true },
+    { name: 'endDate', label: 'shit', hidden: true },
   ],
   actions: [
     { text: '保存', execute: (ctx: ObjectViewContext) => ctx.submit(), primary: true },

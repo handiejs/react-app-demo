@@ -35,6 +35,11 @@ export default {
         formControlSize: 'small',
       },
     },
+    view: {
+      table: {
+        inlineActionRenderType: 'link',
+      },
+    },
     field: {
       textarea: {
         showWordLimit: true,

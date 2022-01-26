@@ -3,8 +3,11 @@ export default {
   path: '/otaku',
   component: '@/entry/layouts/admin',
   meta: { text: '宅文化' },
-  // redirect: '/otaku/animations',
   routes: [
+    {
+      path: '/otaku',
+      redirect: '/otaku/animations',
+    },
     {
       name: 'animationList',
       path: '/otaku/animations',
