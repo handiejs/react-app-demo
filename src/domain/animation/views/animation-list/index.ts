@@ -29,6 +29,13 @@ export default createView(context, {
     { name: 'deleteOne' /*, authority: 'animation:edit' */ },
   ],
   search: {
-    filters: [{ name: 'title', placeholder: '快输入标题啊，哈哈哈' }, 'form', 'description'],
+    filters: [
+      { name: 'title', placeholder: '快输入标题啊，哈哈哈' },
+      'form',
+      'description',
+      { name: 'dateRange', config: { fromField: 'beginDate', toField: 'endDate' } },
+      { name: 'beginDate', hidden: true },
+      { name: 'endDate', hidden: true },
+    ],
   },
 } as ViewDescriptor);

@@ -13,10 +13,6 @@ export default createView(context, {
   widget: AnimationFormViewWidget,
   config: {
     formControlLabelWidth: 80,
-    arrangement: value =>
-      value.form === 'ova'
-        ? '(简要111:xs-12,xs-12|xs-12)(哈拉111:xs-12,xs-12|xs-12,xs-12)'
-        : '(简要222:xs-12|xs-12,xs-12)(哈拉222:xs-12,xs-12|xs-12,xs-12)',
   },
   fields: [
     { name: 'title', hint: '哈哈', config: { prefix: 'holy', suffix: 'shit' } },
@@ -31,10 +27,11 @@ export default createView(context, {
       // config: { format: 'YYYY 年 MM 月 DD 日' },
     },
     { name: 'ss', label: '集数', dataType: 'integer', config: { prefix: 'holy', suffix: 'shit' } },
+    { name: 'rate', label: '评分', dataType: 'float', config: { prefix: '总共', suffix: '分' } },
     {
       name: 'dateRange',
       renderType: 'date-time-range',
-      readonly: '$value.form==="ova"',
+      readonly: '$value.form === "ova"',
       // config: { format: 'YYYY 年 MM 月 DD 日' /*, fromField: 'beginDate', toField: 'endDate' */ },
     },
     { name: 'ghost', label: '幽灵', hidden: true },
