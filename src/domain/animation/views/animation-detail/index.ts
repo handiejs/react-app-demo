@@ -30,5 +30,6 @@ export default createView(context, {
           'YYYY 年 MM 月 DD 日 HH 时 mm 分 ss 秒' /*, fromField: 'beginDate', toField: 'endDate' */,
       },
     },
+    'homepage',
   ],
 } as ObjectViewContextDescriptor);

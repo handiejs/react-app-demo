@@ -8,9 +8,12 @@ import style from './style.scss';
 export default class LoginFormViewWidget extends ObjectViewStructuralWidget {
   public componentDidMount(): void {
     this.on('submit', () =>
-      this.$$module.execute('login', this.$$view.getValue(), (result) => {
-        console.log(result);
-      }),
+      this.$$module.execute(
+        'login',
+        this.$$view.getValue(),
+        () => this.$$app.history.push({ name: 'otaku' }),
+        (message) => this.$$app.alert(message),
+      ),
     );
   }
 

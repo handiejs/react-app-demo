@@ -20,6 +20,12 @@ export default createView(context, {
     'form',
     'episodes',
     {
+      name: 'dateRange',
+      renderType: 'date-time-range',
+      readonly: '$value.form === "ova"',
+      // config: { format: 'YYYY 年 MM 月 DD 日' /*, fromField: 'beginDate', toField: 'endDate' */ },
+    },
+    {
       name: 'startDate',
       label: '开始日期',
       dataType: 'date',
@@ -27,13 +33,8 @@ export default createView(context, {
       // config: { format: 'YYYY 年 MM 月 DD 日' },
     },
     { name: 'ss', label: '集数', dataType: 'integer', config: { prefix: 'holy', suffix: 'shit' } },
+    { name: 'homepage', renderType: 'url' },
     { name: 'rate', label: '评分', dataType: 'float', config: { prefix: '总共', suffix: '分' } },
-    {
-      name: 'dateRange',
-      renderType: 'date-time-range',
-      readonly: '$value.form === "ova"',
-      // config: { format: 'YYYY 年 MM 月 DD 日' /*, fromField: 'beginDate', toField: 'endDate' */ },
-    },
     { name: 'ghost', label: '幽灵', hidden: true },
     { name: 'beginDate', label: 'holy', hidden: true },
     { name: 'endDate', label: 'shit', hidden: true },

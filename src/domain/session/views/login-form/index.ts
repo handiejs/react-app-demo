@@ -10,8 +10,21 @@ export default createView(context, {
   widget: LoginFormViewWidget,
   config: { formControlLabelWidth: 80 },
   fields: [
-    { name: 'username', label: '用户名', dataType: 'string', required: true },
-    { name: 'password', label: '密码', dataType: 'string', required: true },
+    {
+      name: 'username',
+      label: '用户名',
+      dataType: 'string',
+      required: true,
+      placeholder: '请输入「admin」',
+    },
+    {
+      name: 'password',
+      label: '密码',
+      dataType: 'string',
+      renderType: 'password',
+      required: true,
+      placeholder: '请输入「handie」',
+    },
   ],
   validate: 'submit',
 } as ObjectViewContextDescriptor);

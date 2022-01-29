@@ -7,7 +7,7 @@ export default [
   {
     name: 'root',
     path: '/',
-    redirect: '/otaku/animations',
+    redirect: '/session/login',
     meta: { hide: true },
   },
 ];
