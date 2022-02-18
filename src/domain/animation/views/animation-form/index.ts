@@ -15,7 +15,7 @@ export default createView(context, {
     formControlLabelWidth: 80,
   },
   fields: [
-    { name: 'title', hint: '哈哈', config: { prefix: 'holy', suffix: 'shit' } },
+    { name: 'title', hint: '哈哈', config: { prefix: 'holy', suffix: 'light' } },
     'description',
     'form',
     'episodes',
@@ -32,12 +32,12 @@ export default createView(context, {
       // renderType: 'date-time',
       // config: { format: 'YYYY 年 MM 月 DD 日' },
     },
-    { name: 'ss', label: '集数', dataType: 'integer', config: { prefix: 'holy', suffix: 'shit' } },
+    { name: 'ss', label: '集数', dataType: 'integer', config: { prefix: 'holy', suffix: 'light' } },
     { name: 'homepage', renderType: 'url' },
     { name: 'rate', label: '评分', dataType: 'float', config: { prefix: '总共', suffix: '分' } },
     { name: 'ghost', label: '幽灵', hidden: true },
     { name: 'beginDate', label: 'holy', hidden: true },
-    { name: 'endDate', label: 'shit', hidden: true },
+    { name: 'endDate', label: 'light', hidden: true },
   ],
   actions: [
     { text: '保存', execute: (ctx: ObjectViewContext) => ctx.submit(), primary: true },
