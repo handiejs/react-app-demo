@@ -24,7 +24,7 @@
     "eslint": "^7.21.0",
     "eslint-plugin-react": "^7.27.1",
     "fibers": "^5.0.0",
-    "handie-react-starter-umi": "0.0.3",
+    "handie-react-starter-umi": "0.0.4",
     "lint-staged": "^10.0.7",
     "node-sass": "^5.0.0",
     "prettier": "^2.2.0",

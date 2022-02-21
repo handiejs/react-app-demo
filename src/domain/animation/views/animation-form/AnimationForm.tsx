@@ -98,20 +98,26 @@ export default class AnimationFormViewWidget extends FormViewStructuralWidget<An
   public componentDidMount(): void {
     this.on({
       fieldChange: ({ name, value }) => console.log(name, value),
-      fieldValidate: ({ name, result }) =>
-        console.log(
-          `Validation result for field '${name}'`,
-          result.success,
-          result.message,
-          result.type,
-        ),
+      fieldValidate: ({ name, result }) => {
+        if (!result.success) {
+          console.log(
+            `Validation result for field '${name}'`,
+            result.success,
+            result.message,
+            result.type,
+          );
+        }
+      },
       submit: () => {
         console.log('Form submitted!');
       },
     });
 
-    this.$$view.on(`alert.${this.$$view.getId()}`, this.handleAlert);
-    this.$$view.on(`confirm.${this.$$view.getId()}`, this.handleConfirm);
+    this.$$view.on(`alert.${this.$$view.getId()}`, this.handleAlert.bind(this));
+    this.$$view.on(
+      `confirm.${this.$$view.getId()}`,
+      this.handleConfirm.bind(this),
+    );
 
     setTimeout(
       () => this.$$view.setFieldValue('ghost', 'You can not see me!'),

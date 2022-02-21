@@ -18,6 +18,9 @@ export default {
         showIcon: true,
         iconOnly: true,
       },
+      search: {
+        searchWhenSelectableFilterChange: false,
+      },
       filter: {
         showValidationRulesAsNative: true,
       },
