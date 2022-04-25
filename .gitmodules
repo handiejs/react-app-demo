@@ -1,6 +1,9 @@
 [submodule "petals"]
 	path = external/petals
 	url = https://github.com/ourai/petals.git
+[submodule "petals-basic"]
+	path = external/petals-basic
+	url = https://github.com/petals-ui/basic.git
 [submodule "zora-core"]
 	path = external/zora-core
 	url = https://github.com/zora-ui/core.git
@@ -19,9 +22,6 @@
 [submodule "squirtle"]
 	path = external/squirtle
 	url = https://github.com/handiejs/squirtle.git
-[submodule "petals-basic"]
-	path = external/petals-basic
-	url = https://github.com/petals-ui/basic.git
 [submodule "react-starter-antd"]
 	path = external/react-starter-antd
 	url = https://github.com/handiejs/handie-react-starter-antd.git
