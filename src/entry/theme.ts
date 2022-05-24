@@ -8,8 +8,7 @@ export default {
         urls: ['//at.alicdn.com/t/font_1788044_0dwu4guekcwr.js'],
         resolve: ref => `icon-${ref}`,
       },
-      el: { type: 'font', resolve: ref => `el-icon-${ref}` },
-      ivu: { type: 'font' },
+      antd: { type: 'svg' },
     },
   },
   behavior: {
